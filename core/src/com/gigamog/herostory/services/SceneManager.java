@@ -1,6 +1,7 @@
 package com.gigamog.herostory.services;
 
-import com.gigamog.herostory.entities.scenes.IScene;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.gigamog.herostory.entities.scenes.GameScene;
 
 public class SceneManager {
     /*
@@ -11,7 +12,7 @@ public class SceneManager {
     private SceneManager() {
 
     }
-    public SceneManager getSceneManager() {
+    public static SceneManager getSceneManager() {
         if (sceneManager == null)
             sceneManager = new SceneManager();
         return sceneManager;
@@ -21,9 +22,9 @@ public class SceneManager {
      */
 
 
-    IScene currentScene;
+    GameScene currentScene;
 
-    public void loadScene(IScene scene) {
+    public void loadScene(GameScene scene) {
 
         if (currentScene != null)
             currentScene.cleanUpScene();
@@ -33,6 +34,18 @@ public class SceneManager {
         currentScene = scene;
     }
 
+    public void actScene() {
+        if (currentScene != null)
+            currentScene.act();
+    }
+    public void drawScene() {
+        if (currentScene == null)
+            currentScene.draw();
+    }
 
+    public void disposeScene() {
+        if (currentScene != null)
+            currentScene.dispose();
+    }
 
 }
