@@ -5,7 +5,6 @@ import com.badlogic.gdx.Preferences;
 
 public abstract class SavingContext {
     final Preferences preferences = Gdx.app.getPreferences("herosstoryPreferences");
-
     public abstract void save();
 
 }
