@@ -1,4 +1,4 @@
-package com.gigamog.enums;
+package com.gigamog.herostory.enums;
 
 public enum Months {
 

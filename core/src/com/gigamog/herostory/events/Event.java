@@ -1,4 +1,4 @@
-package com.gigamog.events;
+package com.gigamog.herostory.events;
 
 public class Event {
 
