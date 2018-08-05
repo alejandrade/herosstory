@@ -1,27 +1,32 @@
 package com.gigamog.herostory.entities.scenes;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
-public abstract class GameScene {
+import java.util.ArrayList;
 
-    private Stage stage = new Stage(new ScreenViewport());
+public class GameScene {
 
+    private Stage stage;
+    ArrayList<Actor> actors = new ArrayList<Actor>();
 
 
     public void addActor(Actor a) {
-        stage.addActor(a);
-        stage = new Stage();
+        actors.add(a);
     }
 
 
-    public void startScene() {
-        //stage = new Stage();
+    public void startScene(Viewport vp, Batch b) {
+        stage = new Stage(vp, b);
+        for (Actor a : actors) {
+            stage.addActor(a);
+        }
     }
 
     public void cleanUpScene() {
-
+        dispose();
     }
 
 
