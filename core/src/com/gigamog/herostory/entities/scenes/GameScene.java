@@ -7,10 +7,13 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
-public class GameScene {
+public abstract class GameScene {
 
     private Stage stage;
-    ArrayList<Actor> actors = new ArrayList<Actor>();
+    private ArrayList<Actor> actors = new ArrayList<Actor>();
+
+
+    public abstract void setUp();
 
 
     public void addActor(Actor a) {
@@ -19,6 +22,8 @@ public class GameScene {
 
 
     public void startScene(Viewport vp, Batch b) {
+        setUp();
+
         stage = new Stage(vp, b);
         for (Actor a : actors) {
             stage.addActor(a);

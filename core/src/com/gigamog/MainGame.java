@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gigamog.herostory.entities.scenes.GameScene;
+import com.gigamog.herostory.entities.scenes.TestScene;
 import com.gigamog.herostory.services.SceneManager;
 
 public class MainGame extends ApplicationAdapter {
@@ -20,14 +21,7 @@ public class MainGame extends ApplicationAdapter {
         manager = SceneManager.getSceneManager();
 
 
-        Texture img = new Texture("core/assets/badlogic.jpg");
-        Image i = new Image(img);
-        i.setPosition(0,0);
-
-        GameScene startingScene = new GameScene();
-        startingScene.addActor(i);
-
-        manager.loadScene(startingScene);
+        manager.loadScene(new TestScene());
 
 	}
 
