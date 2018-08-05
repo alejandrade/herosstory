@@ -14,10 +14,13 @@ import java.util.Optional;
 public class PreferenceLoaderService {
     private final Preferences preferences = PreferencesUtil.getPreference();
     private final static Gson gson = new Gson();
+
+
     private static final String PLAYER_TABLE = "playerTable";
+    private static final Type PLAYER_DTO_LIST_TYPE = new TypeToken<List<PlayerDto>>(){}.getType();
 
     public void savePlayer(final PlayerDto playerDto){
-        saveArray(playerDto, new TypeToken<List<PlayerDto>>(){}.getType(), PLAYER_TABLE);
+        saveArray(playerDto, PLAYER_DTO_LIST_TYPE, PLAYER_TABLE);
     }
 
     private void save(final Object object, String key){
