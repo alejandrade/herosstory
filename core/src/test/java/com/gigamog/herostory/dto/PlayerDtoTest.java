@@ -12,11 +12,6 @@ public class PlayerDtoTest extends MainGameTest {
 
     @Test
     public void save()  {
-        PlayerDto playerDto = new PlayerDto("sd", "asdf", "sdf", 1);
-        playerDto.save();
-        assertEquals("sd", preferences.getString("playerId"));
-        assertEquals("asdf", preferences.getString("playerFirstName"));
-        assertEquals("sdf", preferences.getString("playerLastName"));
-        assertEquals(1, preferences.getInteger("playerLevel"));
+
     }
 }
