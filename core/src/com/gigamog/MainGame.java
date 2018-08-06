@@ -27,7 +27,7 @@ public class MainGame extends ApplicationAdapter {
 
 	@Override
 	public void resize(int width, int height) {
-		//stage.getViewport().update(width,height);
+        //manager.resizeScene(width,height);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class MainGame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        manager.actScene();
+        manager.actScene(Gdx.graphics.getDeltaTime());
         manager.drawScene();
 	}
 	

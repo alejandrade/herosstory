@@ -41,9 +41,14 @@ public class SceneManager {
         currentScene = scene;
     }
 
-    public void actScene() {
+    public void resizeScene(int width, int height) {
+        if (currentScene!= null)
+            currentScene.resizeScene(width, height);
+    }
+
+    public void actScene(float delta) {
         if (currentScene != null)
-            currentScene.act();
+            currentScene.act(delta);
         else {
             System.out.println("SCENE NULL");
         }

@@ -1,5 +1,6 @@
 package com.gigamog.herostory.entities.scenes;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -35,8 +36,13 @@ public abstract class GameScene {
     }
 
 
-    public void act() {
-        stage.act();
+    public void resizeScene(int width, int height) {
+        stage.getViewport().update(width, height);
+    }
+
+
+    public void act(float delta) {
+        stage.act(delta);
     }
 
     public void draw() {
