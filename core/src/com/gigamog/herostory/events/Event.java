@@ -12,11 +12,16 @@ public class Event {
 
     private Event nextEvent;
 
-    public Event(String name, Months month, int day, Event next) {
+    public Event(String name, Months month, int day, Event next, StoryNode startNode) {
         this.name = name;
         this.month = month;
         this.dayOfMonth = day;
         this.nextEvent = next;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n" + startNode.getCharacter().getName() + " (" + startNode.getEmotion().name() + ")");
+        sb.append(startNode.getMessage());
+        System.out.println(sb.toString());
     }
 
 }
