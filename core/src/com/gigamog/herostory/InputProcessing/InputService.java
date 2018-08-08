@@ -4,14 +4,16 @@ package com.gigamog.herostory.InputProcessing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
+import com.gigamog.herostory.services.PreferenceLoaderService;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+// not tested
 public class InputService {
 
-    private final GlobalControllerListener globalControllerListener;
+    private GlobalControllerListener globalControllerListener;
     private final Map<Integer, ConListener> listenerArrayList = new HashMap<>();
 
     /**
@@ -21,11 +23,9 @@ public class InputService {
      * @param controllable
      */
     public InputService(Controllable controllable){
-        globalControllerListener = new GlobalControllerListener(setMainController());
-        ConListener conListener = new ConListener(controllable, globalControllerListener);
-        this.listenerArrayList.put(1, conListener);
-        Controllers.addListener(conListener);
+        setupController(controllable);
     }
+
 
     /**
      * we can reset the main controller to a different controller
@@ -56,6 +56,13 @@ public class InputService {
         return (Controller controller) -> {
             setMainController(controller);
         };
+    }
+
+    private void setupController(Controllable controllable){
+        globalControllerListener = new GlobalControllerListener(setMainController());
+        ConListener conListener = new ConListener(controllable, globalControllerListener);
+        this.listenerArrayList.put(1, conListener);
+        Controllers.addListener(conListener);
     }
 
     private void log(String message){
