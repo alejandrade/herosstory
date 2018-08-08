@@ -20,7 +20,7 @@ public class Event {
 
         StringBuilder sb = new StringBuilder();
         sb.append("\n" + startNode.getCharacter().getName() + " (" + startNode.getEmotion().name() + ")");
-        sb.append(startNode.getMessage());
+        sb.append("\n" + startNode.getMessage());
         System.out.println(sb.toString());
     }
 
